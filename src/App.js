@@ -2,21 +2,7 @@ import React, { Component } from 'react';
 import '../node_modules/normalize.css/normalize.css';
 import Intro from './Intro';
 import Card from './Card';
-
-const gameData = [
-  {
-    text: "I've ridden a horse.",
-    isFalse: false
-  },
-  {
-    text: "I've been skydiving.",
-    isFalse: false
-  },
-  {
-    text: "I can eat eggs.",
-    isFalse: true
-  }
-];
+import cardData '../data/data.json';
 
 const styles = {
 	width: '100vw',
@@ -42,15 +28,19 @@ export default class App extends Component {
     });
   }
 
+	makeName(first, last) {
+		return first + " " + last;
+	}
+
   render() {
 		return (
 			<div style={styles}>
 			{
 				this.state.hasStarted ?
 					<Card
-						name="Solomon Astley"
-						avatar="../public/images/SolomonAstley.png"
-						gameData={gameData}
+						name={makeName(cardData[cardIndex].firstName, cardData[cardIndex].lastName)}
+						school={cardData[cardIndex].school}
+						gameData={cardData[cardIndex].facts}
 					/>
 				: <Intro handleClick={this.startGame}/>
 			}

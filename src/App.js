@@ -18,6 +18,15 @@ const gameData = [
   }
 ];
 
+const styles = {
+	width: '100vw',
+	height: '100vh',
+	display: 'flex',
+	flexDirection: 'column',
+	justifyContent: 'center',
+	alignItems: 'center',
+}
+
 export default class App extends Component {
   constructor() {
     super();
@@ -34,14 +43,18 @@ export default class App extends Component {
   }
 
   render() {
-    if (!this.state.hasStarted) {
-      return <Intro handleClick={this.startGame}/>;
-    } else {
-      return <Card
-        name="Solomon Astley"
-        avatar="../public/images/SolomonAstley.png"
-        gameData={gameData}
-      />;
-    }
+		return (
+			<div style={styles}>
+			{
+				this.state.hasStarted ?
+					<Card
+						name="Solomon Astley"
+						avatar="../public/images/SolomonAstley.png"
+						gameData={gameData}
+					/>
+				: <Intro handleClick={this.startGame}/>
+			}
+			</div>
+		)
   }
 }

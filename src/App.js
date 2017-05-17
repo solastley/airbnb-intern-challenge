@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../node_modules/normalize.css/normalize.css';
 import Intro from './Intro';
 import Card from './Card';
-import cardData '../data/data.json';
+import cardData from '../data/data.json';
 
 const styles = {
 	width: '100vw',
@@ -33,14 +33,16 @@ export default class App extends Component {
 	}
 
   render() {
+		var currCard = cardData[this.state.cardIndex];
+
 		return (
 			<div style={styles}>
 			{
 				this.state.hasStarted ?
 					<Card
-						name={makeName(cardData[cardIndex].firstName, cardData[cardIndex].lastName)}
-						school={cardData[cardIndex].school}
-						gameData={cardData[cardIndex].facts}
+						name={this.makeName(currCard.firstName, currCard.lastName)}
+						school={currCard.school}
+						gameData={currCard.facts}
 					/>
 				: <Intro handleClick={this.startGame}/>
 			}

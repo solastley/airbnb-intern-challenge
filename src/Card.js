@@ -8,6 +8,7 @@ export default class Card extends Component {
 		return (
 			<div style={styles}>
 				<p>{this.props.name}</p>
+				<p>{this.props.school}</p>
 			</div>
 		);
 	}

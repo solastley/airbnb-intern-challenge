@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../node_modules/normalize.css/normalize.css';
 import Intro from './Intro';
 import Card from './Card';
+import Progress from './Progress'
 import Button from './Button';
 import cardData from '../data/data.json';
 
@@ -20,6 +21,8 @@ export default class App extends Component {
     this.state = {
       hasStarted: false,
       cardIndex: 0,
+			correct: 0,
+			wrong: 0,
     }
   }
 
@@ -41,6 +44,7 @@ export default class App extends Component {
 	}
 
   render() {
+		const {correct, wrong} = this.state
 		var currCard = cardData[this.state.cardIndex];
 
 		return (
@@ -52,8 +56,8 @@ export default class App extends Component {
 							name={this.makeName(currCard.firstName, currCard.lastName)}
 							school={currCard.school}
 							gameData={currCard.facts}
-							handleClick={this.nextCard}
 						/>
+						<Progress good={correct} bad={wrong} total={cardData.length}/>
 						<Button
 							text="Next"
 							onClick={this.nextCard}

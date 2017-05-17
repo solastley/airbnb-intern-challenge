@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
+import Progress from './Progress'
 
-const styles = {};
+const styles = {width: '70%'};
 
 export default class Card extends Component {
-  render() {
-    return (
-      <div className="card">
-        <p>{this.props.name}</p>
-      </div>
-    );
-  }
+	render() {
+		return (
+			<div style={styles}>
+				<p>{this.props.name}</p>
+			</div>
+		);
+	}
 }

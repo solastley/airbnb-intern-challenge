@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import Progress from './Progress';
 import Profile from './Profile';
+import TextItemGroup from './TextItemGroup'
+import Progress from './Progress'
 
 const styles = {width: '70%'};
 
@@ -12,6 +13,7 @@ export default class Card extends Component {
 					name={this.props.name}
 					school={this.props.school}
 				/>
+				<TextItemGroup textItems={this.props.gameData}/>
 			</div>
 		);
 	}

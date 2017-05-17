@@ -6,20 +6,20 @@ fs.createReadStream('data.csv')
     .pipe(parse({delimiter: ','}))
     .on('data', function(csvrow) {
         cardData.push({
-          firstName: csvrow[0],
-          lastName: csvrow[1],
-          school: csvrow[2],
+          firstName: csvrow[0] || 'Not specified',
+          lastName: csvrow[1] || 'Not specified',
+          school: csvrow[2] || 'Not specified',
           facts: [
             {
-              text: csvrow[3],
+              text: csvrow[3] || 'Not specified',
               status: true
             },
             {
-              text: csvrow[4],
+              text: csvrow[4] || 'Not specified',
               status: true
             },
             {
-              text: csvrow[5],
+              text: csvrow[5] || 'Not specified',
               status: false
             }
           ]

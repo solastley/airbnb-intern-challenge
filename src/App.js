@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../node_modules/normalize.css/normalize.css';
 import Intro from './Intro';
 import Card from './Card';
+import Button from './Button';
 import cardData from '../data/data.json';
 
 const styles = {
@@ -28,6 +29,13 @@ export default class App extends Component {
     });
   }
 
+	nextCard = () => {
+		console.log("Click!");
+		this.setState((prevState) => {
+			return {cardIndex: (prevState.cardIndex + 1)};
+		});
+	}
+
 	makeName(first, last) {
 		return first + " " + last;
 	}
@@ -39,11 +47,18 @@ export default class App extends Component {
 			<div style={styles}>
 			{
 				this.state.hasStarted ?
-					<Card
-						name={this.makeName(currCard.firstName, currCard.lastName)}
-						school={currCard.school}
-						gameData={currCard.facts}
-					/>
+					<div>
+						<Card
+							name={this.makeName(currCard.firstName, currCard.lastName)}
+							school={currCard.school}
+							gameData={currCard.facts}
+							handleClick={this.nextCard}
+						/>
+						<Button
+							text="Next"
+							onClick={this.nextCard}
+						/>
+					</div>
 				: <Intro handleClick={this.startGame}/>
 			}
 			</div>

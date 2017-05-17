@@ -1,5 +1,5 @@
 import React from 'react';
-import StartButton from './StartButton.js';
+import Button from './Button.js';
 
 const styles = {
 	display: 'flex',
@@ -12,7 +12,7 @@ export default function Intro({handleClick}) {
 	return (
 		<div style={styles}>
 			<p>Air[tbd] Two truths and a lie</p>
-			<StartButton
+			<Button
 				onClick={() => handleClick()}
 				text="Start"
 			/>

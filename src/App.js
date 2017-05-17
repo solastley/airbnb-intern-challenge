@@ -4,7 +4,11 @@ import Intro from './Intro';
 export default class App extends Component {
   render() {
 		return (
-			<Intro />
+			<Intro handleClick={this.startGame}/>
 		);
+  }
+
+  startGame() {
+    console.log("Click");
   }
 }

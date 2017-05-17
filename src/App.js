@@ -18,13 +18,13 @@ export default class App extends Component {
     super();
     this.state = {
       hasStarted: false,
-      cardIndex: 0
+      cardIndex: 0,
     }
   }
 
   startGame = () => {
     this.setState({
-      hasStarted: true
+      hasStarted: true,
     });
   }
 

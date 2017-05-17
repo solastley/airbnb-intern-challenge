@@ -6,7 +6,7 @@ const styles = {
 	flexDirection: 'column',
 	justifyContent: 'center',
 	alignItems: 'center',
-}
+};
 
 export default function Intro({handleClick}) {
 	return (

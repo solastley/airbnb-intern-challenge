@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Progress from './Progress'
+import Progress from './Progress';
+import Profile from './Profile';
 
 const styles = {width: '70%'};
 
@@ -7,8 +8,10 @@ export default class Card extends Component {
 	render() {
 		return (
 			<div style={styles}>
-				<p>{this.props.name}</p>
-				<p>{this.props.school}</p>
+				<Profile
+					name={this.props.name}
+					school={this.props.school}
+				/>
 			</div>
 		);
 	}
